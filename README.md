@@ -13,9 +13,12 @@ First you need to create html:
 <table class="table table-bordered">
     <thead class="bg-grayish">
         <tr>
-            <th class="sort" sortable-column [sortKey]="'sort key name'" [sortParams]="tableService.sortParams"
+            <th class="sort" sortable-column [sortKey]="'sort key name'" [sortParams]="{sort_key: sort_key_default, sort_direction: 'desc'}"
                 (sortFunc)="tableService.sortAction($event)"
                 [columnName]="column head name"></th>
+            <th class="sort" sortable-column [sortKey]="'sort key name'" [sortParams]="{tableService.sort_key, tableService.sort_direction}"
+                            (sortFunc)="tableService.sortAction($event)"
+                            [columnName]="column head name"></th>
         </tr>
     </thead>
 </table>
